@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stars: 1
+  thumb_is_up: false
+  reviewer_id: 1
+  movie_id: MyString
+  integer: MyString
+
+two:
+  stars: 1
+  thumb_is_up: false
+  reviewer_id: 1
+  movie_id: MyString
+  integer: MyString
