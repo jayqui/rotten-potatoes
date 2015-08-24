@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :movies
+  resources :movies do #index, #show
+    resources :comments, only: [:index, :create]
+    resources :reviews, only: [:index, :create]
+  end
+
+  resources :reviews, only: [:show] do #_new, ###create, #_edit #_destroy
+    resources :comments, only: [:index, :create]
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
