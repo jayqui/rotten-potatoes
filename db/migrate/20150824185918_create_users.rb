@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :username
       t.boolean :is_admin
-      t.boolean :is_reviewer
+      t.boolean :has_pro_permissions
 
       t.timestamps null: false
     end
