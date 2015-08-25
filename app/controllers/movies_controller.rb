@@ -52,6 +52,29 @@ class MoviesController < ApplicationController
     end
   end
 
+  def upvote
+      @movie = Movie.find(params[:id])
+      if @movie.reviews.first.reviewer == current_user
+        @movie.upvote_by current_user
+        @movie.reviews.first.update(thumb_is_up: true)
+        redirect_to :back
+      else
+        redirect_to :back
+      end
+    end
+
+  def downvote
+    @movie = Movie.find(params[:id])
+   if @movie.reviews.first.reviewer == current_user
+     @movie.downvote_by current_user
+     @movie.reviews.first.update(thumb_is_up: false)
+     redirect_to :back
+     puts "hello"
+   else
+    redirect_to :back
+   end
+  end
+
   # DELETE /movies/1
   # DELETE /movies/1.json
   def destroy
@@ -67,6 +90,9 @@ class MoviesController < ApplicationController
     def set_movie
       @movie = Movie.find(params[:id])
     end
+
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
