@@ -15,16 +15,18 @@
 <br>
 
 <%= link_to "All Movies", movies_path %>
+<% if is_admin? %>
+  <br><br>
+  <p>Admin features</p>
+  <%= link_to "Edit Movie", edit_movie_path %>
+<% end %>
 
-<br><br>
-<p>Admin features</p>
-<%= link_to "Edit Movie", edit_movie_path %>
-
+<%if is_admin? || (is_pro? && @movie.reviews.first.reviewer == current_user) %>
 <p>Reviewer features</p>
 <!-- Need to hide this in all cases except when there's no review && when the person has pro_permissions status && has been assigned as reviewer by mattbaker. -->
-
-<% if @movie.reviews.empty? %>
-  <%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>
-<% else%>
-  <%= link_to "Edit your Review" %>
+  <% if @movie.reviews.empty? %>
+    <%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>
+  <% else%>
+    <%= link_to "Edit your Review" %>
+  <% end %>
 <% end %>

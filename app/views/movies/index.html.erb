@@ -8,21 +8,24 @@
             </div>
         </div>
   <table>
-    <th>Movie</th><th>Admin features</th>
+
     <% @movies.each do |movie| %>
     <div class="col-md-3 portfolio-item">
       <img class="img-responsive" src="<%=movie.image_url%>" alt="">
         <p class="title-td"><span id="movie-title-text"><%= link_to movie.title, movie_path(movie.id) %></span></p>
-        <div class="edit-delete">
-          <%= link_to "Edit", edit_movie_path(movie.id) %> |
-          <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
+        <% if is_admin? %>
+          <div class="edit-delete">
+            <%= link_to "Edit", edit_movie_path(movie.id) %> |
+            <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+      <%end%>
     </div>
     <% end %>
   </table>
-
-  <br><br>
-  <p>Admin feature: </p>
-  <%= link_to "Create New Movie", new_movie_path %>
-</div>
+<%if is_admin? %>
+    <br><br>
+    <p>Admin feature: </p>
+    <%= link_to "Create New Movie", new_movie_path %>
+    </div>
+<%end%>
 

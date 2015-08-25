@@ -23,4 +23,12 @@ class ApplicationController < ActionController::Base
     session[:user_id] = nil
   end
 
+  def is_admin?
+    logged_in? && current_user.is_admin == true
+  end
+
+  def is_pro?
+    logged_in? && current_user.has_pro_permissions == true
+  end
+
 end
