@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'movies#index'
+  # root 'movies#index'
   # ^ I"m not sure if this is right but I'm putting it in for now. --JQ
 
   resources :movies do #index, #show
