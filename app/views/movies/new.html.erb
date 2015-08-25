@@ -1,27 +1,5 @@
-<%= form_for @movie, url: {action: "create"} do |f| %>
-  <% if @movie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+<h1>New Movie</h1>
 
-      <ul>
-      <% @movie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render 'form' %>
 
-<%= label_tag(:title, "title") %>
-  <%= f.text_field :title %>
-  <%= label_tag(:tagline, "tagline") %>
-  <%= f.text_field :tagline %>
-  <%= label_tag(:image_url, "image_url") %>
-  <%= f.text_field :image_url, value: "#{Faker::Avatar.image}" %>
-  <%= label_tag(:director, "director") %>
-  <%= f.text_field :director %>
-  <%= label_tag(:producer, "producer") %>
-  <%= f.text_field :producer %>
-  <%= label_tag(:description, "description") %>
-  <%= f.text_field :description %>
-  <%= f.submit "Create" %>
-<% end %>
+<%= link_to 'All Movies', movies_path %>
