@@ -7,14 +7,26 @@
 <p>| synopsis |</p>
 <p><%= @movie.description %></p>
 
+
 <% if @movie.reviews.any? %>
+  <% the_review = @movie.reviews[0] %>
+
   <h3>Review</h3>
-  by <%= @movie.reviews[0].reviewer.name %>
-  <%= @movie.reviews[0].body %>
+  thumbs up? <%= the_review.thumb_is_up %> <br>
+  stars: <%= the_review.stars %>
+
+  <h4><%= the_review.title %></h4>
+  by <%= the_review.reviewer.name %>
+  <%= the_review.body %>
+
 <% end %>
+
 <br>
 
+
 <%= link_to "All Movies", movies_path %>
+
+
 
 <br><br>
 <p>Admin features</p>
@@ -26,5 +38,5 @@
 <% if @movie.reviews.empty? %>
   <%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>
 <% else%>
-  <%= link_to "Edit your Review" %>
+  <%= link_to "Edit your Review", edit_review_path(the_review.id) %>
 <% end %>
