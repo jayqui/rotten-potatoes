@@ -3,7 +3,7 @@
 <div class="row">
             <div class="col-lg-12">
                 <h1 class="movie-index-heading">Movies
-                    <small>Secondary bs...</small>
+                    <small>and the cleverest reviews on the internet</small>
                 </h1>
             </div>
         </div>
@@ -11,8 +11,16 @@
 
     <% @movies.each do |movie| %>
     <div class="col-md-3 portfolio-item">
-      <img class="img-responsive" src="<%=movie.image_url%>" alt="">
+      <a href="<%= movie_path(movie.id) %>"><img class="img-responsive" src="<%=movie.image_url%>" alt=""></a>
         <p class="title-td"><span id="movie-title-text"><%= link_to movie.title, movie_path(movie.id) %></span></p>
+        <% if movie.reviews.first %>
+          review: <%= movie.reviews.first.title %> by <%= movie.reviews.first.reviewer.name %>
+          <BR> stars: <%= movie.reviews.first.stars %>, <BR> thumbs up: <%= movie.reviews.first.thumb_is_up %>
+        <% else %>
+          Review still to come
+        <% end %>
+
+
         <% if is_admin? %>
           <div class="edit-delete">
             <%= link_to "Edit", edit_movie_path(movie.id) %> |
@@ -22,6 +30,9 @@
     </div>
     <% end %>
   </table>
+
+
+
 <%if is_admin? %>
     <br><br>
     <p>Admin feature: </p>
