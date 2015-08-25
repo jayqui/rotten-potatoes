@@ -14,4 +14,22 @@ input {
 
 input[type="text"], input[type="password"] {
   width: 300px;
+  margin: auto;
+}
+
+
+.login {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  margin-top: 4%
+}
+
+body {
+  background-color: #424242;
+}
+
+#login-text {
+  color: #FFFFF9;
+  font-family: helvetica;
 }
