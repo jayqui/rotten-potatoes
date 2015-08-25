@@ -1,6 +1,12 @@
-<h1>Log In</h1>
-<form action="/sessions" method="post">
-  <input type="text" name="user[username]" placeholder="demo: mattbaker for admin privileges">
-  <input type="password" name="user[password]" placeholder="demo: 1234 for admin privileges">
-  <input type="submit" name="submit" value="Log In">
-</form>
+<div class="login">
+  <h1 id="login-text">Log In</h1>
+  <form action="/sessions" method="post">
+    <div class="form-group" >
+      <input class="form-control" type="text" name="user[username]" placeholder="demo: mattbaker for admin privileges"><br>
+      <input class="form-control" for="exampleInputPassword1" type="password" name="user[password]" placeholder="demo: 1234 for admin privileges"><br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+
