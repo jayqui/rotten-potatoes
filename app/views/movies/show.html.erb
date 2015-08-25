@@ -7,11 +7,14 @@
 <p>| synopsis |</p>
 <p><%= @movie.description %></p>
 
-<%= link_to "All Movies", movies_path %>
+<% if @movie.reviews.any? %>
+  <h3>Review</h3>
+  by <%= @movie.reviews[0].reviewer.name %>
+  <%= @movie.reviews[0].body %>
+<% end %>
+<br>
 
-<h3>Review</h3>
-by <%= @movie.reviews[0].reviewer.name %>
-<%= @movie.reviews[0].body %>
+<%= link_to "All Movies", movies_path %>
 
 <br><br>
 <p>Admin features</p>
@@ -20,4 +23,8 @@ by <%= @movie.reviews[0].reviewer.name %>
 <p>Reviewer features</p>
 <!-- Need to hide this in all cases except when there's no review && when the person has pro_permissions status && has been assigned as reviewer by mattbaker. -->
 
-<%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>
+<% if @movie.reviews.empty? %>
+  <%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>
+<% else%>
+  <%= link_to "Edit your Review" %>
+<% end %>
