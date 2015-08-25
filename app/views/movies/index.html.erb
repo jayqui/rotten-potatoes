@@ -3,7 +3,7 @@
 <div class="row">
             <div class="col-lg-12">
                 <h1 class="movie-index-heading">Movies
-                    <small>Secondary bs...</small>
+                    <small>and the cleverest reviews on the internet</small>
                 </h1>
             </div>
         </div>
@@ -11,7 +11,7 @@
 
     <% @movies.each do |movie| %>
     <div class="col-md-3 portfolio-item">
-      <img class="img-responsive" src="<%=movie.image_url%>" alt="">
+      <a href="<%= movie_path(movie.id) %>"><img class="img-responsive" src="<%=movie.image_url%>" alt=""></a>
         <p class="title-td"><span id="movie-title-text"><%= link_to movie.title, movie_path(movie.id) %></span></p>
         <% if is_admin? %>
           <div class="edit-delete">
