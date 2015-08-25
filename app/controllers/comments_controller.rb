@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  #before_actoin :load_commentable
+  #before_action :load_commentable
 
   # GET /comments
   # GET /comments.json

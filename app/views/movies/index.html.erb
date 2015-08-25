@@ -1,0 +1,5 @@
+<h3>All Movies</h3>
+
+<% @movies.each do |movie| %>
+  <div><%= link_to 'This is a spot for a movie', movie_path(movie.id) %></div>
+<% end %>
