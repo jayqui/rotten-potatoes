@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'movies#index'
+  # ^ I"m not sure if this is right but I'm putting it in for now. --JQ
+
   resources :movies do #index, #show
     resources :comments, only: [:index, :create]
     resources :reviews, only: [:index, :create]
@@ -8,6 +11,12 @@ Rails.application.routes.draw do
   resources :reviews, only: [:show] do #_new, ###create, #_edit #_destroy
     resources :comments, only: [:index, :create]
   end
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

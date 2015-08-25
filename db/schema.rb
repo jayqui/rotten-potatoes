@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150824190150) do
   create_table "reviews", force: :cascade do |t|
     t.integer  "stars"
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.boolean  "thumb_is_up"
     t.integer  "reviewer_id"
     t.integer  "movie_id"
@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(version: 20150824190150) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
+    t.string   "hashed_password"
     t.boolean  "is_admin"
-    t.boolean  "is_reviewer"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "has_pro_permissions"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
 end
