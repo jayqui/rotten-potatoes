@@ -19,6 +19,22 @@
             <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
       <%end%>
+      <!-- Thumbs Up Thumbs Down -->
+      <div class="btn-group pull-right">
+        <%= link_to like_movie_path(movie), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        Thumbs Up
+        <%= movie.get_upvotes.size %>
+        <br>
+        <% end %>
+        <%= link_to dislike_movie_path(movie), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down">
+          Thumbs Down
+          <%= movie.get_downvotes.size %>
+          <% end %>
+      </div>
+    <!-- Thumbs Up Thumbs Down -->
+
     </div>
     <% end %>
   </table>
