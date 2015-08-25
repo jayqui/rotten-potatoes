@@ -3,7 +3,6 @@
 <h4><em><%= @movie.tagline %></em></h4>
 <h5>director | <%= @movie.director %></h5>
 <h5>producer | <%= @movie.producer %></h5>
-<h5>pro stars | <%= @movie.rating[0] %></h5>
 <br>
 <p>| synopsis |</p>
 <p><%= @movie.description %></p>
@@ -13,7 +12,7 @@
   by <%= @movie.reviews[0].reviewer.name %>
   <%= @movie.reviews[0].body %>
 <% end %>
-
+<br>
 
 <%= link_to "All Movies", movies_path %>
 

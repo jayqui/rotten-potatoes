@@ -21,3 +21,13 @@ end
 3.times do
   Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: Faker::Avatar.image, director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
 end
+
+10.times do
+  Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name)
+end
+
+10.times do
+  Role.create!(actor_id: (rand(10) + 1), movie_id: (rand(6) + 1))
+end
+
+
