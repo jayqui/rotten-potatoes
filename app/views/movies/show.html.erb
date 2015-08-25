@@ -38,5 +38,5 @@
 <% if @movie.reviews.empty? %>
   <%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>
 <% else%>
-  <%= link_to "Edit your Review", edit_review_path(the_review.id) %>
+  <%= link_to "Edit this Review", edit_review_path(the_review.id) %>
 <% end %>
