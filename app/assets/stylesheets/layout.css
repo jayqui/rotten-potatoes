@@ -16,7 +16,7 @@ input[type="text"], input[type="password"] {
 }
 
 body {
-  background-color: #424242;
+  background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/robots.png');
   color: lightgray;
 }
 
@@ -31,6 +31,8 @@ body {
 
 .index {
   margin-top: 7%;
+  margin-left: 7%;
+  margin-right: 7%;
 }
 
 .movie-index-heading {
@@ -47,11 +49,14 @@ body {
   margin-top: 10px;
   font-family: sans-serif;
   font-size: 1.5em;
+  margin-bottom: 5px;
 
 }
 
 .title-td a {
-  color: #FF974F;
+  color: white;
+
+
 }
 
 
@@ -61,3 +66,12 @@ body {
 
 }
 
+.edit-delete {
+  padding-bottom: 7%;
+  font-family: sans-serif;
+}
+
+.edit-delete a {
+  color: #777;
+  font-family: sans-serif;
+}
