@@ -53,7 +53,7 @@
 
           <li>
             <%= link_to "Log out", logout_path, method: :delete %>
-            <li><a>Welcome <%= current_user.username %></a></li>
+            <li ><a><span id="user">Welcome <%= current_user.username %></span></a></li>
 <!--         <form action="/sessions" method="get">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="Log Out">
