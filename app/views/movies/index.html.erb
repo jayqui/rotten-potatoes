@@ -1,5 +1,16 @@
 <h3>All Movies</h3>
 
-<% @movies.each do |movie| %>
-  <div><%= link_to 'This is a spot for a movie', movie_path(movie.id) %></div>
-<% end %>
+<table>
+  <th>Movie</th><th>Admin features</th>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td class="title-td"><%= link_to movie.title, movie_path(movie.id) %></td>
+      <td><%= link_to "Edit", edit_movie_path(movie.id) %></td>
+      <td><%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br><br>
+<p>Admin feature: </p>
+<%= link_to "Create New Movie", new_movie_path %>
