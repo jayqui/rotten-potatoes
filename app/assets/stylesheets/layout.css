@@ -1,16 +1,12 @@
-/*nav {
-  background-color: chartreuse;
-}
-
-#nav-title {
+/*#nav-title {
   font-weight: bold;
   font-size: 3em;
-}
+}*/
 
-nav li {
+/*nav li {
   display: inline-block;
   margin: 0 80px;
-}
+}*/
 
 input {
   display: block;
@@ -19,5 +15,3 @@ input {
 input[type="text"], input[type="password"] {
   width: 300px;
 }
-<<<<<<< HEAD
-*/
