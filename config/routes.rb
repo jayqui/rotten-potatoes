@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :create]
   end
 
+  resources :actors
+
 
   resources :sessions, only: [:new, :create, :destroy]
 
