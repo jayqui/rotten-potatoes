@@ -10,11 +10,10 @@
     <%= link_to "All Movies", movies_path %>
 </div>
 
-
   <% if @movie.reviews.any? %>
     <% the_review = @movie.reviews[0] %>
-    
-  
+
+
 <!-- Thumbs Up Thumbs Down -->
   <% if @movie.reviews.first.reviewer == current_user%>
       <%= link_to like_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
@@ -35,7 +34,7 @@
      <% end %>
   <% end %>
 <!-- Thumbs Up Thumbs Down -->
-  
+
 <div class="review">
   <h3>Pro Review</h3>
   <hr>
