@@ -30,7 +30,10 @@
 
 <br><br>
 <p>Admin features</p>
-<%= link_to "Edit Movie", edit_movie_path %>
+<%= link_to "Edit Movie", edit_movie_path %><br>
+<%= link_to "Delete this Movie", @movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<br>
 
 <p>Reviewer features</p>
 <!-- Need to hide this in all cases except when there's no review && when the person has pro_permissions status && has been assigned as reviewer by mattbaker. -->
