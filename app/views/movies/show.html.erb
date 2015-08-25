@@ -1,5 +1,5 @@
 <img src="<%= @movie.image_url %>">
-<h3><%= @movie.title %></h3>
+<h2><%= @movie.title %></h2>
 <h4><em><%= @movie.tagline %></em></h4>
 <h5>director | <%= @movie.director %></h5>
 <h5>producer | <%= @movie.producer %></h5>
@@ -9,7 +9,7 @@
 
 <%= link_to "All Movies", movies_path %>
 
-<p>Review</p>
+<h3>Review</h3>
 by <%= @movie.reviews[0].reviewer.name %>
 <%= @movie.reviews[0].body %>
 
