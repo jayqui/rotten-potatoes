@@ -8,6 +8,10 @@
   margin: 0 80px;
 }*/
 
+body {
+  background-color: #AAA;
+}
+
 input {
   display: block;
 }
