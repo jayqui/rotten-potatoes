@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # ^ I"m not sure if this is right but I'm putting it in for now. --JQ
 
   resources :movies do #index, #show
+    member do
+      put "like", to: "movies#upvote"
+      put "dislike", to: "movies#downvote"
+    end
     resources :comments, only: [:index, :create]
     resources :reviews, only: [:index, :new, :create]
   end

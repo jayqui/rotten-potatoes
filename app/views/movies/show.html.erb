@@ -12,7 +12,26 @@
   <% the_review = @movie.reviews[0] %>
 
   <h3>Review</h3>
-  thumbs up? <%= the_review.thumb_is_up %> <br>
+  <!-- Thumbs Up Thumbs Down -->
+
+    <%= link_to like_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
+    <i class="fa fa-thumbs-up"></i>
+
+    <% if @movie.get_upvotes.size > 0 %>
+      Thumbs Up!
+    <% end %>
+
+    <% end %>
+
+    <%= link_to dislike_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
+    <i class="fa fa-thumbs-down"></i>
+
+      <% if @movie.get_downvotes.size > 0 %>
+        Thumbs Down!
+      <% end %>
+   <% end %>
+
+    <!-- Thumbs Up Thumbs Down -->
   stars: <%= the_review.stars %>
 
   <h4><%= the_review.title %></h4>
