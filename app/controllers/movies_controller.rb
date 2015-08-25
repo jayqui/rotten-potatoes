@@ -56,6 +56,7 @@ class MoviesController < ApplicationController
       @movie = Movie.find(params[:id])
       if @movie.reviews.first.reviewer == current_user
         @movie.upvote_by current_user
+        @movie.reviews.first.update(thumb_is_up: true)
         redirect_to :back
       else
         redirect_to :back
@@ -66,7 +67,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
    if @movie.reviews.first.reviewer == current_user
      @movie.downvote_by current_user
+     @movie.reviews.first.update(thumb_is_up: false)
      redirect_to :back
+     puts "hello"
    else
     redirect_to :back
    end
