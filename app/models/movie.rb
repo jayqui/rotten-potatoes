@@ -4,6 +4,6 @@ class Movie < ActiveRecord::Base
   belongs_to :admin, class_name: "User"
   has_many :reviews
   has_many :comments, as: :commentable
-  has_many :roles
+  has_many :roles, dependent: :destroy
   has_many :actors, through: :roles
 end
