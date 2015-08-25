@@ -75,3 +75,23 @@ body {
   color: #777;
   font-family: sans-serif;
 }
+
+.show {
+  margin: auto 50%;
+}
+
+
+
+.review {
+  border-top: 1px solid white;
+  padding-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%
+
+}
+
+.show-top-content {
+  padding-left: 35%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
