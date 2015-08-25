@@ -16,8 +16,19 @@
         <% if movie.reviews.first %>
           review: <%= movie.reviews.first.title %> by <%= movie.reviews.first.reviewer.name %>
 
-          <%= if movie.reviews.first.thumb_is_up %>
-            <i src="">
+          <% if movie.reviews.first.thumb_is_up %>
+            <span class="btn btn-default btn-sm">
+              <i class="fa fa-thumbs-up"></i>
+
+                Thumbs Up!
+
+            </span>
+          <% else %>
+             <span class="btn btn-default btn-sm">
+               <i class="fa fa-thumbs-down"></i>
+                 Thumbs Down!
+             </span>
+          <% end %>
 
           <BR> stars: <%= movie.reviews.first.stars %>, <BR> thumbs up: <%= movie.reviews.first.thumb_is_up %>
         <% else %>

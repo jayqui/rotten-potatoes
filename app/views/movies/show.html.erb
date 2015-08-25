@@ -15,16 +15,16 @@
   <!-- Thumbs Up Thumbs Down -->
 
     <%= link_to like_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
-    <i class="fa fa-thumbs-up"></i>
+      <i class="fa fa-thumbs-up"></i>
 
-    <% if @movie.get_upvotes.size > 0 %>
-      Thumbs Up!
-    <% end %>
+      <% if @movie.get_upvotes.size > 0 %>
+        Thumbs Up!
+      <% end %>
 
     <% end %>
 
     <%= link_to dislike_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
-    <i class="fa fa-thumbs-down"></i>
+      <i class="fa fa-thumbs-down"></i>
 
       <% if @movie.get_downvotes.size > 0 %>
         Thumbs Down!
