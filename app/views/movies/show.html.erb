@@ -14,26 +14,7 @@
     <% the_review = @movie.reviews[0] %>
 
 
-<!-- Thumbs Up Thumbs Down -->
-  <% if @movie.reviews.first.reviewer == current_user%>
-      <%= link_to like_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
-        <i class="fa fa-thumbs-up"></i>
 
-        <% if @movie.get_upvotes.size > 0 %>
-          Thumbs Up!
-        <% end %>
-
-      <% end %>
-
-      <%= link_to dislike_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
-        <i class="fa fa-thumbs-down"></i>
-
-        <% if @movie.get_downvotes.size > 0 %>
-          Thumbs Down!
-        <% end %>
-     <% end %>
-  <% end %>
-<!-- Thumbs Up Thumbs Down -->
 
 <div class="review">
   <h3>Pro Review</h3>

@@ -15,14 +15,33 @@ input[type="text"], input[type="password"] {
   margin-top: 4%
 }
 
+.form-wrapper{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  margin-top: 4%;
+  border: 1px solid white;
+  background-color: grey;
+}
+
 body {
   background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/robots.png');
   color: lightgray;
 }
 
+#edit-text {
+  color: blue;
+}
+
 #login-text {
   color: #FFFFF9;
   font-family: helvetica;
+}
+
+.poope {
+  height: 20px;
+  width: 20px;
+  background-color: blue;
 }
 
 .title-td {
