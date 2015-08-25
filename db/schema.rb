@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150824190150) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "name"
     t.string   "username"
     t.string   "hashed_password"
     t.boolean  "is_admin"
