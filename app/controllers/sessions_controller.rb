@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
 
   def create
-    p "PARAMS!!!!"
-    p params
     @user = set_user
     respond_to do |format|
       if @user # should be @user.authenticate?
