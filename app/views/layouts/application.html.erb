@@ -50,9 +50,10 @@
           <li><a href="#about">About</a></li>
 
           <% if current_user %>
-          <li id="welcome-nav ">Welcome <%= current_user.username %>!</li>
+
           <li>
             <%= link_to "Log out", logout_path, method: :delete %>
+            <li><a>Welcome <%= current_user.username %></a></li>
 <!--         <form action="/sessions" method="get">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="Log Out">

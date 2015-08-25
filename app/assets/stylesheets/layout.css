@@ -17,6 +17,7 @@ input[type="text"], input[type="password"] {
 
 body {
   background-color: #424242;
+  color: lightgray;
 }
 
 #login-text {
@@ -27,3 +28,36 @@ body {
 .title-td {
   padding: 0 80px 0 0;
 }
+
+.index {
+  margin-top: 7%;
+}
+
+.movie-index-heading {
+  color: lightgray;
+  text-align: center;
+}
+
+.img-responsive {
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+}
+
+.title-td{
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-size: 1.5em;
+
+}
+
+.title-td a {
+  color: #FF974F;
+}
+
+
+.title-td a:hover {
+  color: white;
+  text-decoration: none;
+
+}
+
