@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :username
-      t.string :hashed_password
+      t.string :password_digest
       t.boolean :is_admin
       t.boolean :has_pro_permissions
 
