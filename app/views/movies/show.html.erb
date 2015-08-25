@@ -7,6 +7,9 @@
 <p>| synopsis |</p>
 <p><%= @movie.description %></p>
 
+<% @movie.actors.each do |actor| %>
+  <%= actor.name %>, &nbsp
+<% end %>
 
 <% if @movie.reviews.any? %>
   <% the_review = @movie.reviews[0] %>
