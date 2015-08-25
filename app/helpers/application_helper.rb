@@ -26,4 +26,5 @@ module ApplicationHelper
   def is_pro?
     logged_in? && current_user.has_pro_permissions == true
   end
+
 end
