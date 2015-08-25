@@ -1,37 +1,44 @@
-<img src="<%= @movie.image_url %>">
-<h2><%= @movie.title %></h2>
-<h4><em><%= @movie.tagline %></em></h4>
-<h5>director | <%= @movie.director %></h5>
-<h5>producer | <%= @movie.producer %></h5>
-<br>
-<p>| synopsis |</p>
-<p><%= @movie.description %></p>
+<div class="show-top-content">
+    <img src="<%= @movie.image_url %>">
+    <h2><%= @movie.title %></h2>
+    <h4><em><%= @movie.tagline %></em></h4>
+    <h5>director | <%= @movie.director %></h5>
+    <h5>producer | <%= @movie.producer %></h5>
+    <br>
+    <p>| synopsis |</p>
+    <p><%= @movie.description %></p>
+    <%= link_to "All Movies", movies_path %>
+</div>
 
 
-<% if @movie.reviews.any? %>
-  <% the_review = @movie.reviews[0] %>
+  <% if @movie.reviews.any? %>
+    <% the_review = @movie.reviews[0] %>
+    
+  
+<!-- Thumbs Up Thumbs Down -->
+  <% if @movie.reviews.first.reviewer == current_user%>
+      <%= link_to like_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
+        <i class="fa fa-thumbs-up"></i>
 
-  <h3>Review</h3>
-  <!-- Thumbs Up Thumbs Down -->
+        <% if @movie.get_upvotes.size > 0 %>
+          Thumbs Up!
+        <% end %>
 
-    <%= link_to like_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
-      <i class="fa fa-thumbs-up"></i>
-
-      <% if @movie.get_upvotes.size > 0 %>
-        Thumbs Up!
       <% end %>
 
-    <% end %>
+      <%= link_to dislike_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
+        <i class="fa fa-thumbs-down"></i>
 
-    <%= link_to dislike_movie_path(@movie), method: :put, class: "btn btn-default btn-sm" do %>
-      <i class="fa fa-thumbs-down"></i>
-
-      <% if @movie.get_downvotes.size > 0 %>
-        Thumbs Down!
-      <% end %>
-   <% end %>
-
-    <!-- Thumbs Up Thumbs Down -->
+        <% if @movie.get_downvotes.size > 0 %>
+          Thumbs Down!
+        <% end %>
+     <% end %>
+  <% end %>
+<!-- Thumbs Up Thumbs Down -->
+  
+<div class="review">
+  <h3>Pro Review</h3>
+  <hr>
   stars: <%= the_review.stars %>
 
   <h4><%= the_review.title %></h4>
@@ -39,11 +46,14 @@
   <%= the_review.body %>
 
 <% end %>
+<br>
+<br>
+</div>
 
 <br>
 
 
-<%= link_to "All Movies", movies_path %>
+
 <% if is_admin? %>
   <br><br>
   <p>Admin features</p>

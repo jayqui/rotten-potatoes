@@ -150,9 +150,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-
-  bcrypt
   acts_as_votable (~> 0.10.0)
+  bcrypt
   bootstrap-sass (~> 3.3.5)
   byebug
   coffee-rails (~> 4.1.0)
