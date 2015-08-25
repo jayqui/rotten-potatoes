@@ -1,0 +1,15 @@
+<%= form_for @movie, url: {action: "create"} do |f| %>
+<%= label_tag(:title, "title") %>
+  <%= f.text_field :title %>
+  <%= label_tag(:tagline, "tagline") %>
+  <%= f.text_field :tagline %>
+  <%= label_tag(:image_url, "image_url") %>
+  <%= f.text_field :image_url %>
+  <%= label_tag(:director, "director") %>
+  <%= f.text_field :director %>
+  <%= label_tag(:producer, "producer") %>
+  <%= f.text_field :producer %>
+  <%= label_tag(:description, "description") %>
+  <%= f.text_field :description %>
+  <%= f.submit "Create" %>
+<% end %>
