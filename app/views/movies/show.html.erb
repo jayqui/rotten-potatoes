@@ -39,12 +39,25 @@
                <i class="fa fa-thumbs-down"></i>
                  Thumbs Down!
              </span>
-          <% end %>|<span id="stars">
-            Stars: <%= the_review.stars %></span>
+          <% end %>|
 
-
-
-
+<span id="stars">
+        Stars: <% if the_review.stars == 1 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+               <% elsif the_review.stars == 2 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+               <% elsif the_review.stars == 3 %>
+                  <i class="fa fa-star gold"></i>
+                  <i class="fa fa-star gold"></i>
+                  <i class="fa fa-star gold"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+               <% elsif the_review.stars == 4 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
+               <% elsif the_review.stars == 5 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
+               <% end %>
+      </span>
 <% end %>
 <br>
 <br>

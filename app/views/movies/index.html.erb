@@ -10,11 +10,11 @@
   <table>
 
     <% @movies.each do |movie| %>
-    <div class="col-md-3 portfolio-item">
+      <div class="col-md-3 portfolio-item">
       <a href="<%= movie_path(movie.id) %>"><img class="img-responsive" src="<%=movie.image_url%>" alt=""></a>
         <p class="title-td"><span id="movie-title-text"><%= link_to movie.title, movie_path(movie.id) %></span></p>
         <% if movie.reviews.first %>
-          review: <%= movie.reviews.first.title %> by <%= movie.reviews.first.reviewer.name %>
+          review: <%= movie.reviews.first.title %> by <%= movie.reviews.first.reviewer.name %><br>
 
           <% if movie.reviews.first.thumb_is_up %>
             <span class="btn btn-default btn-sm">
@@ -29,17 +29,35 @@
                  Thumbs Down!
              </span>
           <% end %>
+          <br>
+            <!-- Stars -->
+            <span id="stars">
+                  Stars: <% if movie.reviews.first.stars == 1 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+               <% elsif movie.reviews.first.stars == 2 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+               <% elsif movie.reviews.first.stars == 3 %>
+                  <i class="fa fa-star gold"></i>
+                  <i class="fa fa-star gold"></i>
+                  <i class="fa fa-star gold"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+               <% elsif movie.reviews.first.stars == 4 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
+               <% elsif movie.reviews.first.stars == 5 %>
+                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
+               <% end %>
+        </span>
+      <!-- Stars -->
 
-          <BR> stars: <%= movie.reviews.first.stars %>, <BR> thumbs up: <%= movie.reviews.first.thumb_is_up %>
+<%= link_to "Edit", edit_movie_path(movie.reviews.first.id) %> |
+            <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% else %>
           Review still to come
         <% end %>
-
-
         <% if is_admin? %>
           <div class="edit-delete">
-            <%= link_to "Edit", edit_movie_path(movie.id) %> |
-            <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+
           </div>
       <%end%>
     </div>
