@@ -36,8 +36,9 @@
           <% end %>
           <br>
             <!-- Stars -->
+            Pro rating:
             <span id="stars">
-                  Stars: <% if movie.reviews.first.stars == 1 %>
+                  <% if movie.reviews.first.stars == 1 %>
                   <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                <% elsif movie.reviews.first.stars == 2 %>
                   <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
@@ -52,11 +53,13 @@
                <% elsif movie.reviews.first.stars == 5 %>
                   <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
                <% end %>
-        </span>
+          </span>
 
         <% else %>
           Review still to come
         <% end %>
+
+        <%= render partial: "stars/stars_average", locals: { commentable: @actor } %>
 
         <% if is_admin? %>
           <div class="edit-delete">
