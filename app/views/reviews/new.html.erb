@@ -1,5 +1,9 @@
-<h3>New review of <%= @movie.title %></h3>
+<div class="form-wrapper">
+  <div id="review-form">
+    <h3 id="edit-text">New review of <%= @movie.title %></h3>
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to "Back to #{@movie.title}", movie_path(@movie.id) %>
+    <%= link_to "Back to #{@movie.title}", movie_path(@movie.id) %>
+  </div>
+</div>

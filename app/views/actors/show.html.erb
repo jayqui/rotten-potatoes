@@ -14,6 +14,10 @@
 
 </div>
 
+=======
+<% all_stars = @actor.comments.map{|com| com.stars} %>
+<% avg = (all_stars.reduce(:+) / all_stars.count).round %>
+Average user rating: <%= render partial: "stars/stars", locals: { thing: avg } %>
 
 <!-- BEGIN USER COMMENTS ON ACTOR SECTION -->
 <div class="review">
