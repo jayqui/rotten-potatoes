@@ -31,7 +31,7 @@ Movie.last.update(authorized_reviewer: User.find(2))
   Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name, image_url: Faker::Avatar.image)
 end
 10.times do
-  Role.create!(actor_id: (rand(10) + 1), movie_id: (rand(6) + 1))
+  Role.create!(actor_id: (rand(10) + 1), movie_id: (rand(5) + 1))
 end
 20.times do
   Comment.create!(stars: (rand(5)+1), body: Faker::Hacker.say_something_smart, commenter_id: (rand(5)+1), commentable_id: (rand(5)+1), commentable_type: ["Movie","Review","Actor"].sample)
