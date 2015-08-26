@@ -3,8 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
 
+  
   def current_user
     @user ||= User.find_by(id: session[:user_id])
+  end
+  
+  def this_user
+    User.find_by(id: session[:user_id])
   end
 
   def current_user_id
@@ -27,8 +32,8 @@ class ApplicationController < ActionController::Base
     logged_in? && current_user.is_admin == true
   end
 
-  def is_pro?
-    logged_in? && current_user.has_pro_permissions == true
+  def authorized?(movie, reviewer)
+    movie.authorized_reviewer == reviewer
   end
 
 end

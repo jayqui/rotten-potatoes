@@ -1,0 +1,31 @@
+<% if !is_admin? %>
+  <p>You aren't allowed to view this page because you don't have administrative privileges.</p>
+<% else %>
+  <div class="show-top-content">
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Name:</strong>
+      name | <%= @user.name %><br>
+      username | <%= @user.username %><br>
+      is admin? | <%= @user.is_admin %><br>
+      assigned to review movies:
+      <ul>
+        <% movs = Movie.where(authorized_reviewer: @user) %>
+        <%= "None yet" if movs.empty? %>
+        <% movs.each do |user| %>
+          <%= link_to mov.title, movie_path(mov.id) %><br>
+        <% end %>
+      </ul>
+    </p>
+
+    <%= link_to 'Back to movie', url_for(:back) %> |
+    <%= link_to 'All users', users_path %>
+
+    <br>
+    <br>
+    Average User Rating: &nbsp
+    <%= render partial: "stars/stars_average", locals: { commentable: @user } %>
+  </div>
+<% end %>

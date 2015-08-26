@@ -52,6 +52,16 @@ class MoviesController < ApplicationController
     end
   end
 
+  def assign
+    p "PARAMS!! " * 50
+    p params
+    respond_to do |format|
+      if @movie.update(movie_params)
+      else
+      end
+    end
+  end
+
   def upvote
       @movie = Movie.find(params[:id])
       if @movie.reviews.first.reviewer == current_user
@@ -92,11 +102,8 @@ class MoviesController < ApplicationController
     end
 
 
-
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      # params.require(:movie).permit(:doesntmatter)
-      params.require(:movie).permit(:admin_id, :title, :tagline, :image_url, :director, :producer, :description)
+      params.require(:movie).permit(:admin_id, :title, :tagline, :image_url, :director, :producer, :description, :authorized_reviewer)
     end
 end

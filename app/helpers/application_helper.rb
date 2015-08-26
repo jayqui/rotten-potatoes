@@ -1,6 +1,11 @@
 module ApplicationHelper
+
   def current_user
     @user ||= User.find_by(id: session[:user_id])
+  end
+
+  def this_user
+    User.find_by(id: session[:user_id])
   end
 
   def current_user_id
@@ -20,11 +25,11 @@ module ApplicationHelper
   end
 
   def is_admin?
-    logged_in? && current_user.is_admin == true
+    logged_in? && this_user.is_admin == true
   end
 
-  def is_pro?
-    logged_in? && current_user.has_pro_permissions == true
+  def authorized?(movie, reviewer)
+    movie.authorized_reviewer == reviewer
   end
 
 end

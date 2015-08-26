@@ -25,6 +25,8 @@ end
   Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/5', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
 
 
+Movie.last.update(authorized_reviewer: User.find(2))
+
 10.times do
   Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name, image_url: Faker::Avatar.image)
 end

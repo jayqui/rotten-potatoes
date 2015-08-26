@@ -36,15 +36,16 @@ ActiveRecord::Schema.define(version: 20150825202604) do
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "movies", force: :cascade do |t|
-    t.integer  "admin_id",    null: false
-    t.string   "title",       null: false
+    t.integer  "admin_id",               null: false
+    t.string   "title",                  null: false
     t.string   "tagline"
     t.string   "image_url"
     t.string   "director"
     t.string   "producer"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "authorized_reviewer_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "reviews", force: :cascade do |t|
