@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150825202604) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "stars"
     t.string   "body"
     t.integer  "commenter_id",     null: false
     t.integer  "commentable_id",   null: false
