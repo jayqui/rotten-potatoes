@@ -15,15 +15,30 @@ input[type="text"], input[type="password"] {
   margin-top: 4%
 }
 
+.form-wrapper{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  margin-top: 4%;
+  border: 1px solid white;
+  background-color: darkgrey;
+  color: black;
+}
+
 body {
   background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/robots.png');
   color: lightgray;
+}
+
+#edit-text {
+
 }
 
 #login-text {
   color: #FFFFF9;
   font-family: helvetica;
 }
+
 
 .title-td {
   padding: 0 80px 0 0;
@@ -74,4 +89,36 @@ body {
 .edit-delete a {
   color: #777;
   font-family: sans-serif;
+}
+
+.show {
+  margin: auto 50%;
+}
+
+
+
+.review {
+  border-top: 1px solid white;
+  padding-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%
+
+}
+
+.show-top-content {
+  padding-left: 35%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+#stars {
+  font-size: 1.3em;
+}
+
+.actions {
+  text-align: center;
+}
+
+.gold {
+  color: gold;
 }

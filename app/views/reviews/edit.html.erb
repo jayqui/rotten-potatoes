@@ -1,5 +1,8 @@
-<h3>Edit your review of <%= @review.movie.title %></h3>
+<div class="form-wrapper">
+  <h3 id="edit-text">Edit your review of <%= @review.movie.title %></h3>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to "Back to #{@review.movie.title}", movie_path(@review.movie.id) %>
+  <%= link_to "Back to #{@review.movie.title}", movie_path(@review.movie.id) %>
+</div>
+</div>
