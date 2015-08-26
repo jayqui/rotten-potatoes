@@ -3,25 +3,7 @@
 
   --
   <!-- STAR RATING -->
-          <span id="stars">
-                <% if com.stars %>
-          Stars: <% if com.stars == 1 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                 <% elsif com.stars == 2 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                 <% elsif com.stars == 3 %>
-                    <i class="fa fa-star gold"></i>
-                    <i class="fa fa-star gold"></i>
-                    <i class="fa fa-star gold"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                 <% elsif com.stars == 4 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
-                 <% elsif com.stars == 5 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
-                 <% end %>
-               <% end %>
-        </span>
+        user rating: <%= render partial: "stars/stars", locals: { thing: com.stars } %>
 
   (<%= com.created_at %>)
 
