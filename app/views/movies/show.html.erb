@@ -17,9 +17,10 @@
 </div>
 
 
-    <!-- BEGIN REVIEW SECTION -->
-    <% the_review = @movie.reviews[0] %>
-    <div class="review">
+  <!-- BEGIN REVIEW SECTION -->
+  <% the_review = @movie.reviews[0] %>
+  <div class="review">
+    <% if @movie.reviews.any? %>
       <h3>Pro Review</h3><br>
        by <%= the_review.reviewer.name %>
         <h4><%= the_review.title %></h4>
@@ -59,8 +60,11 @@
                     <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
                  <% end %>
         </span>
-    </div>
-    <!-- END REVIEW SECTION -->
+    <% else %>
+      A pro review has yet to be written.
+    <% end %>
+  </div>
+  <!-- END REVIEW SECTION -->
 
 
 <!-- BEGIN USER COMMENTS ON MOVIE SECTION -->
