@@ -1,6 +1,8 @@
 <h1>Editing Actor</h1>
 
-<%= render 'form' %>
+<div class="form-wrapper">
+	<%= render 'form' %>
+</div>
 
 <%= link_to 'Show', @actor %> |
-<%= link_to 'Back', actors_path %>
+<%= link_to 'Back', actor_path(@actor.id) %>

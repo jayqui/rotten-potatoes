@@ -23,7 +23,7 @@ end
 end
 
 10.times do
-  Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name)
+  Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name, image_url: Faker::Avatar.image)
 end
 
 10.times do
