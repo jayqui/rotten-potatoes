@@ -10,8 +10,6 @@
 matty = User.create!(is_admin: true, name: "Matt Baker", username: 'mattbaker', has_pro_permissions: false, password: "1234")
 
 
-
-
 3.times do
   User.create!(is_admin: false, name: Faker::Name.first_name + " " + Faker::Name.last_name, username: Faker::Internet.user_name, has_pro_permissions: true, password: "1234")
   User.create!(is_admin: false, name: Faker::Name.first_name + " " + Faker::Name.last_name, username: Faker::Internet.user_name, has_pro_permissions: false, password: "1234")
