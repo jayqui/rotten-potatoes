@@ -1,1 +1,19 @@
-_stars.html.erb
+          <span id="stars">
+                <% if thing %>
+          Stars: <% if thing == 1 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                 <% elsif thing == 2 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                 <% elsif thing == 3 %>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                 <% elsif thing == 4 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
+                 <% elsif thing == 5 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
+                 <% end %>
+               <% end %>
+        </span>
