@@ -56,7 +56,7 @@
         <% if current_user %>
           <li>
             <%= link_to "Log out", logout_path, method: :delete %>
-            <li ><a><span id="user">Welcome <%= this_user.username %></span></a></li>
+            <li ><a><span id="user">Welcome <%= this_user.username if this_user %></span></a></li>
   <!--      <form action="/sessions" method="get">
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="Log Out">
