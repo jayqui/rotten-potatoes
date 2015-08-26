@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
-  # root 'movies#index'
-  # ^ I"m not sure if this is right but I'm putting it in for now. --JQ
-
-  resources :movies do #index, #show
+  resources :movies do
     member do
       put "like", to: "movies#upvote"
       put "dislike", to: "movies#downvote"
@@ -12,7 +9,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
   end
 
-  resources :reviews, only: [:show, :edit, :update] do #_new, ###create, #_edit #_destroy
+  resources :reviews, only: [:show, :edit, :update] do
     resources :comments, only: [:index, :new, :create]
   end
 
@@ -22,6 +19,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create]
   end
 
+  resources :users
 
   resources :sessions, only: [:new, :create, :destroy]
 

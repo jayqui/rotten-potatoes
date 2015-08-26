@@ -227,4 +227,6 @@ input[type="radio"]{
   background: linear-gradient(black, #191919);
 }
 
-
+label { 
+  color: lightgray;
+}
