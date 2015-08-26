@@ -8,9 +8,7 @@
 <%= link_to 'Edit', edit_actor_path(@actor) %> |
 <%= link_to 'Back', actors_path %>
 
-<% all_stars = @actor.comments.map{|com| com.stars} %>
-<% avg = (all_stars.reduce(:+) / all_stars.count).round %>
-Average user rating: <%= render partial: "stars/stars", locals: { thing: avg } %>
+<%= render partial: "stars/stars_average", locals: { commentable: @actor } %>
 
 <!-- BEGIN USER COMMENTS ON ACTOR SECTION -->
 <div class="review">
