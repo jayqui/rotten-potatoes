@@ -1,3 +1,5 @@
+
+
 <%= form_for [@movie, @review] do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -11,21 +13,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :stars %><br>
-    <%= f.text_field :stars %>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-    <%= f.label :thumb_is_up %><br>
-    <%= f.text_field :thumb_is_up %>
-    <%= f.label :reviewer_id %><br>
-    <%= f.text_field :reviewer_id %>
-    <%= f.label :movie_id %><br>
-    <%= f.text_field :movie_id %>
-
+<div class="form-wrapper">
+  <div class="form-group" >
+    <div class="field">
+      <%= f.label :stars%>
+      <%= f.select :stars, [[1,1],[2,2],[3,3], [4,4], [5,5]] %><br>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+      <%= f.label :body %><br>
+      <%= f.text_area :body %><br>
+      <%= f.label :thumb_is_up %><br />
+      <%= f.label :thumb_is_up, "Yes", :value => true  %>
+      <%= f.radio_button :thumb_is_up, true %>
+      <%= f.label :thumb_is_up, "No", :value => false %>
+      <%= f.radio_button :thumb_is_up, false, :checked => true %>
+    </div>
   </div>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
