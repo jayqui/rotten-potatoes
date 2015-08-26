@@ -232,11 +232,23 @@ input[type="radio"]{
 
 .img-responsive {
   margin-bottom: 5%;
+  margin-top: 5%;
 }
 .movie-show-image{
   width: 750px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px black;
   }
+.title {
+  color: darkgrey;
+}
 
+.director{
+  font-size: 1.2em;
+  color: white;
+}
+
+h2 {
+  color: white;
+}
 
