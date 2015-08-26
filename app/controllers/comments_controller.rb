@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  #before_action :load_commentable
+  before_action :load_commentable, only: [:new, :create]
+  before_action :determine_movie, only: [:new, :create]
 
   # GET /comments
   # GET /comments.json
@@ -16,10 +17,10 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
-    p "PARAMS 8:19 PM" * 50
-    p params
-    @commentable = Movie.find(params[:movie_id]) if params[:movie_id]
-    @commentable = Review.find(params[:review_id]) if params[:review_id]
+
+    p "@commentable.is_a?(Movie)" * 50
+    p @commentable
+    p @commentable.is_a?(Movie)
   end
 
   # GET /comments/1/edit
@@ -30,10 +31,12 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @comment.commenter = current_user
+    @comment.commentable = @commentable
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to determine_movie, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -47,7 +50,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to determine_movie, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -70,6 +73,19 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def load_commentable
+      @commentable = Movie.find(params[:movie_id]) if params[:movie_id]
+      @commentable = Review.find(params[:review_id]) if params[:review_id]
+    end
+
+    def determine_movie
+      if @commentable.is_a?(Movie)
+        return @commentable
+      elsif @commentable.is_a?(Review)
+        return @commentable.movie
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

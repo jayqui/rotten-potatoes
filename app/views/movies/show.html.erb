@@ -54,7 +54,7 @@
 <% if @movie.comments.any? %>
   <h4>User comments on this movie</h4>
   <ul>
-    <% @movie.comments.each do |com| %>
+    <% @movie.comments.reverse_each do |com| %>
       <li><%= com.body %> -- <%= com.commenter.name %> (<%= com.created_at %>)</li>
     <% end %>
   </ul>
@@ -70,7 +70,7 @@
 <% if @movie.reviews[0] && @movie.reviews[0].comments.any? %>
     <h4>User comments on <%= @movie.reviews.first.reviewer.name %>'s review</h4>
       <ul>
-      <% @movie.reviews.first.comments.each do |com| %>
+      <% @movie.reviews.first.comments.reverse_each do |com| %>
         <li><%= com.body %> -- <%= com.commenter.name %> (<%= com.created_at %>)</li>
       <% end %>
     </ul>
