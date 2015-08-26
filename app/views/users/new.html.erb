@@ -1,17 +1,5 @@
 <div class="login">
 
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h4 style="color:red"><%= pluralize(@user.errors.count, "error") %> prohibited this review from being saved:</h4>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <span style="color:red"><%= message %></span>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
 	<h1>Signup!</h1>
 
 	<%= form_for :user, url: '/users' do |f| %>
