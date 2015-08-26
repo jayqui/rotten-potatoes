@@ -13,13 +13,17 @@ matty = User.create!(is_admin: true, name: "Matt Baker", username: 'mattbaker', 
 3.times do
   User.create!(is_admin: false, name: Faker::Name.first_name + " " + Faker::Name.last_name, username: Faker::Internet.user_name, has_pro_permissions: true, password: "1234")
   User.create!(is_admin: false, name: Faker::Name.first_name + " " + Faker::Name.last_name, username: Faker::Internet.user_name, has_pro_permissions: false, password: "1234")
-  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: Faker::Avatar.image, director: Faker::Name.first_name + " " + Faker::Name.last_name, producer: Faker::Name.first_name + " " + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
   Review.create!(stars: (rand(5)+1), title: Faker::Book.title, body: Faker::Hacker.say_something_smart, thumb_is_up: true, reviewer_id: (rand(5)+1), movie_id: (rand(5)+1))
 end
 
-3.times do
-  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: Faker::Avatar.image, director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
-end
+
+
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url:  'http://lorempixel.com/750/450/nightlife/1', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/2', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/3', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/4', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/5', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+
 
 10.times do
   Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name, image_url: Faker::Avatar.image)
