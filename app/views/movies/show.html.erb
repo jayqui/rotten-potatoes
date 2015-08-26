@@ -1,24 +1,25 @@
 <div class="show-top-content">
-    <img src="<%= @movie.image_url %>">
-    <h2><%= @movie.title %></h2>
-    <h4><em><%= @movie.tagline %></em></h4>
-    <h5>director | <%= @movie.director %></h5>
-    <h5>producer | <%= @movie.producer %></h5>
-    <h5>starring |<% @movie.actors.each_with_index do |actor, i| %>
+    <img  class="img-responsive movie-show-image " src="<%= @movie.image_url %>">
+    <h2 ><%= @movie.title %></h2>
+    <h4 class="title"><em><%= @movie.tagline %></em></h4>
+    <br>
+    <h5><span class="director">Director</span> | <%= @movie.director %></h5>
+    <h5><span class="director" >Producer</span> | <%= @movie.producer %></h5>
+    <h5><span class="director">Starring</span> |<% @movie.actors.each_with_index do |actor, i| %>
       <a href="/actors/<%= actor.id %>"><%= actor.name %></a>
       <%= ',' if i < (@movie.actors.count - 1) %>
     <% end %>
     </h5>
     <br>
 
-    <h6>synopsis:</h6>
-    <p><%= @movie.description %></p>
+    <h6 class="director" >Synopsis:</h6>
+    <p><em><%= @movie.description %></em></p>
 
-    Average User Rating: &nbsp
+    <span class="director"  >Average User Rating: &nbsp</span>
     <%= render partial: "stars/stars_average", locals: { commentable: @movie } %>
     <br><br>
 
-    <%= link_to "All Movies", movies_path %>
+    <span class="director"><%= link_to "All Movies", movies_path %></span>
 </div>
 
 
@@ -28,7 +29,7 @@
     <% if @movie.reviews.any? %>
       <h3>Pro Review</h3><br>
        by <%= the_review.reviewer.name %>
-        <h4><%= the_review.title %></h4>
+        <h4 ><%= the_review.title %></h4>
       <hr>
 
       <%= the_review.body %><hr>

@@ -19,28 +19,13 @@
       <a href="<%= movie_path(movie.id) %>"><img class="img-responsive" src="<%=movie.image_url%>" alt=""></a>
         <p class="title-td"><span id="movie-title-text"><%= link_to movie.title, movie_path(movie.id) %></span></p>
         <% if movie.reviews.first %>
-          review: <%= movie.reviews.first.title %> by <%= movie.reviews.first.reviewer.name %><br>
 
-          <% if movie.reviews.first.thumb_is_up %>
-            <span class="btn btn-default btn-sm">
-              <i class="fa fa-thumbs-up"></i>
 
-                Thumbs Up!
-
-            </span>
-          <% else %>
-             <span class="btn btn-default btn-sm">
-               <i class="fa fa-thumbs-down"></i>
-                 Thumbs Down!
-             </span>
-          <% end %>
-          <br>
+          <!-- <br> -->
             Pro rating:
             <%= render partial: "stars/stars", locals: {thing: movie.reviews.first.stars} %>
           <br>
 
-        <% else %>
-          Review still to come <br>
         <% end %>
 
         Average User Rating: &nbsp
