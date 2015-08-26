@@ -4,7 +4,10 @@
     <h4><em><%= @movie.tagline %></em></h4>
     <h5>director | <%= @movie.director %></h5>
     <h5>producer | <%= @movie.producer %></h5>
-    <h5>starring |<%= @movie.actors.pluck(:name).join(", ") %></h5>
+    <h5>starring |<% @movie.actors.each do |actor| %>
+      <a href="/actors/<%= actor.id %>"><%= actor.name %></a>
+    <% end %>
+    </h5>
     <br>
 
     <h6>synopsis:</h6>
