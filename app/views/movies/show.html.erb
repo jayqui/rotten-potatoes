@@ -55,7 +55,7 @@
   <h4>User comments on this movie</h4>
   <ul>
     <% @movie.comments.reverse_each do |com| %>
-      <li><%= com.body %> -- <%= com.commenter.name %> (<%= com.created_at %>)</li>
+      <%= render partial: "comments/display_comment", locals: { com: com } %>
     <% end %>
   </ul>
 <% end %>
@@ -71,7 +71,7 @@
     <h4>User comments on <%= @movie.reviews.first.reviewer.name %>'s review</h4>
       <ul>
       <% @movie.reviews.first.comments.reverse_each do |com| %>
-        <li><%= com.body %> -- <%= com.commenter.name %> (<%= com.created_at %>)</li>
+        <%= render partial: "comments/display_comment", locals: { com: com } %>
       <% end %>
     </ul>
 <% end %>
@@ -95,7 +95,7 @@
   <br>
 <% end %>
 
-<%if is_admin? || (is_pro? && @movie.reviews.first.reviewer == current_user) %>
+<%if is_admin? || (is_pro? && @movie.reviews.any? && @movie.reviews.first.reviewer == current_user) %>
   <p>Reviewer features</p>
   <% if @movie.reviews.empty? %>
     <%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>

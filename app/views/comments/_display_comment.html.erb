@@ -1,0 +1,11 @@
+
+
+<li>
+  <%= com.body %> -- <%= com.commenter.name %> (<%= com.created_at %>)
+
+  <% if is_admin? || com.commenter == current_user %>
+    <%= link_to "Edit" %> |
+    <%= link_to "Delete" %>
+  <% end %>
+
+</li>
