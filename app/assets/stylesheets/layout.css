@@ -233,5 +233,10 @@ input[type="radio"]{
 .img-responsive {
   margin-bottom: 5%;
 }
+.movie-show-image{
+  width: 750px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+  }
 
 
