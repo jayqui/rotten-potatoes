@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-matty = User.create!(is_admin: true, name: "Matt Baker", username: 'mattbaker', has_pro_permissions: false, password_digest: "1234")
+matty = User.create!(is_admin: true, name: "Matt Baker", username: 'mattbaker', has_pro_permissions: false, password: "1234")
 
 
 
