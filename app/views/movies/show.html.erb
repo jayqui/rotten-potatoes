@@ -76,7 +76,7 @@
   <br>
 <% end %>
 
-<%if is_admin? || (is_pro? && @movie.reviews.first.reviewer == current_user) %>
+<%if is_admin? || (is_pro? && @movie.reviews.any? && @movie.reviews.first.reviewer == current_user) %>
   <p>Reviewer features</p>
   <% if @movie.reviews.empty? %>
     <%= link_to "Review this Movie", new_movie_review_path(@movie.id) %>

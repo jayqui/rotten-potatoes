@@ -9,7 +9,9 @@
         </div>
   <table>
 
-    <% @movies.each do |movie| %>
+    <% @sorted = Movie.all.sort {|x,y| y.reviews.count <=> x.reviews.count} %>
+
+    <% @sorted.each do |movie| %>
       <div class="col-md-3 portfolio-item">
       <a href="<%= movie_path(movie.id) %>"><img class="img-responsive" src="<%=movie.image_url%>" alt=""></a>
         <p class="title-td"><span id="movie-title-text"><%= link_to movie.title, movie_path(movie.id) %></span></p>
