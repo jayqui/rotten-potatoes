@@ -7,9 +7,10 @@
     <strong>Name:</strong>
     <%= @actor.name %>
   </p>
-
+  <% if is_admin? %>  
+    <%= link_to 'Edit', edit_actor_path(@actor) %> |
+  <% end %>
   <%= link_to 'Back to movie', url_for(:back) %> |
-  <%= link_to 'Edit', edit_actor_path(@actor) %> |
   <%= link_to 'All actors', actors_path %>
 
   <br>
