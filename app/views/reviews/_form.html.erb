@@ -12,21 +12,22 @@
   <% end %>
 
 
-  <div class="form-group" >
+  <div >
     <div class="field">
-        <%= f.label :stars%>
+        <span class="form-for-movie"><%= f.label :stars%>
         <%= f.select :stars, [[1,1],[2,2],[3,3], [4,4], [5,5]] %><br>
         <%= f.label :title %><br>
         <%= f.text_field :title %>
         <%= f.label :body %><br>
         <%= f.text_area :body %><br>
-        <%= f.label :thumb_is_up %><br />
-        <%= f.label :thumb_is_up, "Yes", :value => true  %>
-        <%= f.radio_button :thumb_is_up, true %>
-        <%= f.label :thumb_is_up, "No", :value => false %>
-        <%= f.radio_button :thumb_is_up, false, :checked => true %>
-        <%= f.submit %>
-
+        <div class="box"> <%= f.label :thumb_is_up, "Thumbs Up?" %><br />
+          <%= f.label :thumb_is_up, "Yes", :value => true  %>
+          <%= f.radio_button :thumb_is_up, true %>
+          <%= f.label :thumb_is_up, "No", :value => false %>
+          <%= f.radio_button :thumb_is_up, false, :checked => true %><br>
+        </div>
+       <div class="submit-review"><%= f.submit %><div><span>
+        <br>
       </div>
     </div>
   </div>

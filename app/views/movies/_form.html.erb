@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <%= label_tag(:title, "title") %>
+  <%= label_tag(:title, "Title") %>
   <%= f.text_field :title %>
-  <%= label_tag(:tagline, "tagline") %>
+  <%= label_tag(:tagline, "Tagline") %>
   <%= f.text_field :tagline %>
-  <%= label_tag(:image_url, "image_url") %>
+  <%= label_tag(:image_url, "Image_url") %>
   <%= f.text_field :image_url, value: "#{Faker::Avatar.image}" %>
-  <%= label_tag(:director, "director") %>
+  <%= label_tag(:director, "Director") %>
   <%= f.text_field :director %>
-  <%= label_tag(:producer, "producer") %>
+  <%= label_tag(:producer, "Producer") %>
   <%= f.text_field :producer %>
-  <%= label_tag(:description, "description") %>
+  <%= label_tag(:description, "Description") %>
   <%= f.text_field :description %>
-  <%= f.submit "Submit" %>
-<% end %>
+  <div class="submit-movie"><%= f.submit "Submit" %></div>
+<% end %><br>
