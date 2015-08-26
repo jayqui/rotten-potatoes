@@ -1,5 +1,4 @@
 class ActorsController < ApplicationController
-	
   before_action :set_actor, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -51,7 +50,7 @@ class ActorsController < ApplicationController
   end
 
 	private
-    
+
   def set_actor
     @actor = Actor.find(params[:id])
   end

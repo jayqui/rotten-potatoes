@@ -7,3 +7,26 @@
 
 <%= link_to 'Edit', edit_actor_path(@actor) %> |
 <%= link_to 'Back', actors_path %>
+
+
+
+<!-- BEGIN USER COMMENTS ON ACTOR SECTION -->
+<div class="review">
+  <h4>User comments on this actor</h4>
+  <% if @actor.comments.any? %>
+    <ul>
+      <% @actor.comments.reverse_each do |com| %>
+        <%= render partial: "comments/display_comment", locals: { com: com } %>
+      <% end %>
+    </ul>
+  <% else %>
+    None yet.
+  <% end %>
+
+  <% if current_user %>
+    <br>
+    <%= link_to "Post a new comment on this actor", new_actor_comment_path(@actor.id) %>
+    <br>
+  <% end %>
+</div>
+<!-- END USER COMMENTS ON ACTOR SECTION -->
