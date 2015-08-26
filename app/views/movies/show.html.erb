@@ -4,68 +4,110 @@
     <h4><em><%= @movie.tagline %></em></h4>
     <h5>director | <%= @movie.director %></h5>
     <h5>producer | <%= @movie.producer %></h5>
+    <h5>starring |<% @movie.actors.each_with_index do |actor, i| %>
+      <a href="/actors/<%= actor.id %>"><%= actor.name %></a>
+      <%= ',' if i < (@movie.actors.count - 1) %>
+    <% end %>
+    </h5>
     <br>
-    <p>| synopsis |</p>
+
+    <h6>synopsis:</h6>
     <p><%= @movie.description %></p>
     <%= link_to "All Movies", movies_path %>
 </div>
 
-  <% if @movie.reviews.any? %>
-    <% the_review = @movie.reviews[0] %>
+
+  <!-- BEGIN REVIEW SECTION -->
+  <% the_review = @movie.reviews[0] %>
+  <div class="review">
+    <% if @movie.reviews.any? %>
+      <h3>Pro Review</h3><br>
+       by <%= the_review.reviewer.name %>
+        <h4><%= the_review.title %></h4>
+      <hr>
+
+      <%= the_review.body %><hr>
+
+        <% if @movie.reviews.first.thumb_is_up %>
+                <span class="btn btn-default btn-sm">
+                  <i class="fa fa-thumbs-up"></i>
+                    Thumbs Up!
+                </span>
+        <% else %>
+                 <span class="btn btn-default btn-sm">
+                   <i class="fa fa-thumbs-down"></i>
+                     Thumbs Down!
+                 </span>
+        <% end %>
+      <br>
+      <br>
+      <br>
+
+        <span id="stars">
+          Stars: <% if the_review.stars == 1 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                 <% elsif the_review.stars == 2 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                 <% elsif the_review.stars == 3 %>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                 <% elsif the_review.stars == 4 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
+                 <% elsif the_review.stars == 5 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
+                 <% end %>
+        </span>
+    <% else %>
+      A pro review has yet to be written.
+    <% end %>
+  </div>
+  <!-- END REVIEW SECTION -->
 
 
-<% @movie.actors.each do |actor| %>
-  <%= actor.name %>, &nbsp
-<% end %>
-
-
+<!-- BEGIN USER COMMENTS ON MOVIE SECTION -->
 <div class="review">
-  <h3>Pro Review</h3><br>
-   by <%= the_review.reviewer.name %>
-    <h4><%= the_review.title %></h4>
-  <hr>
+  <h4>User comments on this movie</h4>
+  <% if @movie.comments.any? %>
+    <ul>
+      <% @movie.comments.reverse_each do |com| %>
+        <%= render partial: "comments/display_comment", locals: { com: com } %>
+      <% end %>
+    </ul>
+  <% else %>
+    None yet.
+  <% end %>
 
-  <%= the_review.body %><hr>
-
-   <% if @movie.reviews.first.thumb_is_up %>
-            <span class="btn btn-default btn-sm">
-              <i class="fa fa-thumbs-up"></i>
-
-                Thumbs Up!
-
-            </span>
-          <% else %>
-             <span class="btn btn-default btn-sm">
-               <i class="fa fa-thumbs-down"></i>
-                 Thumbs Down!
-             </span>
-          <% end %>|
-
-<span id="stars">
-        Stars: <% if the_review.stars == 1 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-               <% elsif the_review.stars == 2 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-               <% elsif the_review.stars == 3 %>
-                  <i class="fa fa-star gold"></i>
-                  <i class="fa fa-star gold"></i>
-                  <i class="fa fa-star gold"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-               <% elsif the_review.stars == 4 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
-               <% elsif the_review.stars == 5 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
-               <% end %>
-      </span>
-<% end %>
-<br>
-<br>
+  <% if current_user %>
+    <br>
+    <%= link_to "Post a new comment on this movie", new_movie_comment_path(@movie.id) %>
+    <br>
+  <% end %>
 </div>
+<!-- END USER COMMENTS ON MOVIE SECTION -->
+<!-- BEGIN USER COMMENTS ON REVIEW SECTION -->
+<div class="review">
+  <% if @movie.reviews[0] && @movie.reviews[0].comments.any? %>
+      <h4>User comments on <%= @movie.reviews.first.reviewer.name %>'s review</h4>
+        <ul>
+        <% @movie.reviews.first.comments.reverse_each do |com| %>
+          <%= render partial: "comments/display_comment", locals: { com: com } %>
+        <% end %>
+      </ul>
+  <% end %>
 
-<br>
+  <% if current_user && @movie.reviews[0] %>
+    <br>
+    <%= link_to "Comment on" + @movie.reviews.first.reviewer.name +  " 's review", new_review_comment_path(@movie.reviews.first.id) %>
+    <br>
+  <% end %>
+</div>
+<!-- END USER COMMENTS ON REVIEW SECTION -->
 
 
+<%= link_to "All Movies", movies_path %>
 
 <% if is_admin? %>
   <br><br>

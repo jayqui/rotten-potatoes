@@ -8,14 +8,15 @@ Rails.application.routes.draw do
       put "like", to: "movies#upvote"
       put "dislike", to: "movies#downvote"
     end
-    resources :comments, only: [:index, :create]
+    resources :comments, only: [:index, :new, :create]
     resources :reviews, only: [:index, :new, :create]
   end
 
   resources :reviews, only: [:show, :edit, :update] do #_new, ###create, #_edit #_destroy
-    resources :comments, only: [:index, :create]
+    resources :comments, only: [:index, :new, :create]
   end
 
+  resources :comments, only: [:edit, :update, :destroy]
   resources :actors
 
 

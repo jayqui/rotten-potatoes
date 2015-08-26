@@ -1,0 +1,9 @@
+<h1>Editing Comment</h1>
+
+<%= render 'form' %>
+
+<% if @commentable.is_a?(Movie) %>
+  <%= link_to "Back to #{@commentable.title}", "/movies/#{@commentable.id}" %>
+<% elsif @commentable.is_a?(Review) %>
+  <%= link_to "Back to #{@commentable.movie.title}", "/movies/#{@commentable.movie.id}" %>
+<% end %>
