@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
     logged_in? && current_user.is_admin == true
   end
 
-  def is_pro?
-    logged_in? && current_user.has_pro_permissions == true
+  def authorized?(movie, reviewer)
+    movie.authorized_reviewer == reviewer
   end
 
 end

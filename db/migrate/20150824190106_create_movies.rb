@@ -8,6 +8,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :director
       t.string :producer
       t.string :description
+      t.integer :authorized_reviewer_id
 
       t.timestamps null: false
     end
