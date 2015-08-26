@@ -16,6 +16,10 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    p "PARAMS 8:19 PM" * 50
+    p params
+    @commentable = Movie.find(params[:movie_id]) if params[:movie_id]
+    @commentable = Review.find(params[:review_id]) if params[:review_id]
   end
 
   # GET /comments/1/edit

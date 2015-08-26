@@ -78,7 +78,7 @@
 
 <% if current_user && @movie.reviews[0] %>
   <br>
-  <%= link_to "Comment on" + @movie.reviews.first.reviewer.name +  "'s review", new_review_comment_path(@movie.reviews.first.id) %>
+  <%= link_to "Comment on" + @movie.reviews.first.reviewer.name +  " 's review", new_review_comment_path(@movie.reviews.first.id) %>
   <br>
 <% end %>
 
