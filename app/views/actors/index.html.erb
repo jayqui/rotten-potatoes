@@ -8,7 +8,7 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th colspan="3"></th>
+        <th colspan="3">Average User Rating</th>
       </tr>
     </thead>
 
@@ -16,6 +16,7 @@
       <% @actors.each do |actor| %>
         <tr>
           <td><%= actor.name %></td>
+          <td><%= render partial: "stars/stars_average", locals: {commentable: actor} %></td>
           <td><%= link_to 'Show', actor %></td>
           <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
           <td><%= link_to 'Destroy', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,7 +27,7 @@
 
   <br>
 
-  <%= link_to 'New Actor', new_actor_path %>
+  <%= link_to 'New Actor', new_actor_path %><br>
   <%= link_to 'Back', new_actor_path %>
 
 </div>

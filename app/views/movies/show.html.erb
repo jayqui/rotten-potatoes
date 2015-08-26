@@ -14,7 +14,7 @@
     <h6>synopsis:</h6>
     <p><%= @movie.description %></p>
 
-    <!-- average user star rating -->
+    Average User Rating: &nbsp
     <%= render partial: "stars/stars_average", locals: { commentable: @movie } %>
     <br><br>
 
