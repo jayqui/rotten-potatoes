@@ -13,6 +13,11 @@
 
     <h6>synopsis:</h6>
     <p><%= @movie.description %></p>
+
+    <!-- average user star rating -->
+    <%= render partial: "stars/stars_average", locals: { commentable: @movie } %>
+    <br><br>
+
     <%= link_to "All Movies", movies_path %>
 </div>
 
@@ -43,23 +48,8 @@
       <br>
       <br>
 
-        <span id="stars">
-          Stars: <% if the_review.stars == 1 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                 <% elsif the_review.stars == 2 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                 <% elsif the_review.stars == 3 %>
-                    <i class="fa fa-star gold"></i>
-                    <i class="fa fa-star gold"></i>
-                    <i class="fa fa-star gold"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                 <% elsif the_review.stars == 4 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
-                 <% elsif the_review.stars == 5 %>
-                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
-                 <% end %>
-        </span>
+        <%= @movie.reviews.first.reviewer.name %>'s professional star rating on this movie: <%= render partial: "stars/stars", locals: { thing: the_review.stars } %>
+
     <% else %>
       A pro review has yet to be written.
     <% end %>
@@ -68,6 +58,7 @@
 
 
 <!-- BEGIN USER COMMENTS ON MOVIE SECTION -->
+
 <div class="review">
   <h4>User comments on this movie</h4>
   <% if @movie.comments.any? %>

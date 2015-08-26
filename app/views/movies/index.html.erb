@@ -35,32 +35,19 @@
              </span>
           <% end %>
           <br>
-            <!-- Stars -->
-            <span id="stars">
-                  Stars: <% if movie.reviews.first.stars == 1 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-               <% elsif movie.reviews.first.stars == 2 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-               <% elsif movie.reviews.first.stars == 3 %>
-                  <i class="fa fa-star gold"></i>
-                  <i class="fa fa-star gold"></i>
-                  <i class="fa fa-star gold"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-               <% elsif movie.reviews.first.stars == 4 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
-               <% elsif movie.reviews.first.stars == 5 %>
-                  <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
-               <% end %>
-        </span>
+            Pro rating:
+            <%= render partial: "stars/stars", locals: {thing: movie.reviews.first.stars} %>
+          <br>
 
         <% else %>
-          Review still to come
+          Review still to come <br>
         <% end %>
+
+        <%= render partial: "stars/stars_average", locals: { commentable: movie } %>
 
         <% if is_admin? %>
           <div class="edit-delete">
-            <%= link_to "Edit", edit_movie_path(movie.reviews.first.id) if movie.reviews.any? %> |
+            <%= link_to "Edit", edit_movie_path(movie.id) %> |
             <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
       <%end%>
