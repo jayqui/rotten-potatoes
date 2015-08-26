@@ -13,6 +13,11 @@
 
     <h6>synopsis:</h6>
     <p><%= @movie.description %></p>
+
+    <!-- average user star rating -->
+    <%= render partial: "stars/stars_average", locals: { commentable: @movie } %>
+    <br><br>
+
     <%= link_to "All Movies", movies_path %>
 </div>
 
@@ -43,7 +48,6 @@
       <br>
       <br>
 
-        <!-- average user rating -->
         <%= @movie.reviews.first.reviewer.name %>'s professional star rating on this movie: <%= render partial: "stars/stars", locals: { thing: the_review.stars } %>
 
     <% else %>
@@ -54,6 +58,7 @@
 
 
 <!-- BEGIN USER COMMENTS ON MOVIE SECTION -->
+
 <div class="review">
   <h4>User comments on this movie</h4>
   <% if @movie.comments.any? %>
