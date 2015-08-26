@@ -53,16 +53,15 @@
                   <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
                <% end %>
         </span>
-      <!-- Stars -->
 
-<%= link_to "Edit", edit_movie_path(movie.reviews.first.id) %> |
-            <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% else %>
           Review still to come
         <% end %>
+
         <% if is_admin? %>
           <div class="edit-delete">
-
+            <%= link_to "Edit", edit_movie_path(movie.reviews.first.id) if movie.reviews.any? %> |
+            <%= link_to "Delete", movie, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
       <%end%>
     </div>
