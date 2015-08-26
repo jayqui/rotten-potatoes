@@ -12,10 +12,10 @@
     </h5>
     <br>
 
-    <h6>Synopsis:</h6>
-    <p><%= @movie.description %></p>
+    <h6 class="director" >Synopsis:</h6>
+    <p><em><%= @movie.description %></em></p>
 
-    Average User Rating: &nbsp
+    <span class="director"  >Average User Rating: &nbsp</span>
     <%= render partial: "stars/stars_average", locals: { commentable: @movie } %>
     <br><br>
 
