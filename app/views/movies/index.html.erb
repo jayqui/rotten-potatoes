@@ -43,6 +43,7 @@
           Review still to come <br>
         <% end %>
 
+        Average User Rating: &nbsp
         <%= render partial: "stars/stars_average", locals: { commentable: movie } %>
 
         <% if is_admin? %>

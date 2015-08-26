@@ -210,3 +210,12 @@ input[type="radio"]{
   border: 3px solid black;
 }
 
+.actor_index {
+  margin-top: 7%;
+}
+
+.table {
+  color: gray;
+}
+
+
