@@ -1,12 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="show-top-content">
 
-<p>
-  <strong>Name:</strong>
-  <%= @actor.name %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_actor_path(@actor) %> |
-<%= link_to 'Back', actors_path %>
+  <p>
+    <img src="<%= @actor.image_url %>"><br><br>
+    <strong>Name:</strong>
+    <%= @actor.name %>
+  </p>
+
+  <%= link_to 'Back to movie', url_for(:back) %> |
+  <%= link_to 'Edit', edit_actor_path(@actor) %> |
+  <%= link_to 'All actors', actors_path %>
+
+</div>
+
+
+<% all_stars = @actor.comments.map{|com| com.stars} %>
+<% avg = (all_stars.reduce(:+) / all_stars.count).round %>
+Average user rating: <%= render partial: "stars/stars", locals: { thing: avg } %>
 
 <%= render partial: "stars/stars_average", locals: { commentable: @actor } %>
 

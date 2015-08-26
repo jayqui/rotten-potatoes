@@ -22,7 +22,7 @@ end
 end
 
 10.times do
-  Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name)
+  Actor.create!(name: Faker::Name.first_name + " " + Faker::Name.last_name, image_url: Faker::Avatar.image)
 end
 10.times do
   Role.create!(actor_id: (rand(10) + 1), movie_id: (rand(6) + 1))
