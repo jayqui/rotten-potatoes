@@ -1,5 +1,29 @@
 <li>
-  <%= com.body %> -- <%= com.commenter.name %> (<%= com.created_at %>)
+  <%= com.body %> -- <%= com.commenter.name %>
+
+  --
+  <!-- STAR RATING -->
+          <span id="stars">
+                <% if com.stars %>
+          Stars: <% if com.stars == 1 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                 <% elsif com.stars == 2 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                 <% elsif com.stars == 3 %>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star gold"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                 <% elsif com.stars == 4 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star"></i>
+                 <% elsif com.stars == 5 %>
+                    <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
+                 <% end %>
+               <% end %>
+        </span>
+
+  (<%= com.created_at %>)
 
   <% if is_admin? || com.commenter == current_user %>
     <%= link_to "Edit", "/comments/#{com.id}/edit" %> |
