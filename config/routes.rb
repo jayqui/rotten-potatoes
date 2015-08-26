@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:edit, :update, :destroy]
-  resources :actors
+
+  resources :actors do
+    resources :comments, only: [:index, :new, :create]
+  end
 
 
   resources :sessions, only: [:new, :create, :destroy]

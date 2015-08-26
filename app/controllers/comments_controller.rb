@@ -75,10 +75,13 @@ class CommentsController < ApplicationController
     def load_commentable
       @commentable = Movie.find(params[:movie_id]) if params[:movie_id]
       @commentable = Review.find(params[:review_id]) if params[:review_id]
+      @commentable = Actor.find(params[:actor_id]) if params[:actor_id]
     end
 
     def determine_movie
       if @commentable.is_a?(Movie)
+        return @commentable
+      elsif @commentable.is_a?(Actor)
         return @commentable
       elsif @commentable.is_a?(Review)
         return @commentable.movie
@@ -92,6 +95,8 @@ class CommentsController < ApplicationController
 
     def commentable_of_comment
       if @comment.commentable.is_a?(Movie)
+        return @comment.commentable
+      elsif @comment.commentable.is_a?(Actor)
         return @comment.commentable
       elsif @comment.commentable.is_a?(Review)
         return @comment.commentable.movie
