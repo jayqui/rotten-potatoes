@@ -218,4 +218,13 @@ input[type="radio"]{
   color: gray;
 }
 
+.footer_links {
+  text-align: center;
+}
+.navbar {
+  /*background-image: url("http://cdn.backgroundhost.com/backgrounds/subtlepatterns/robots.png");*/
+  /*background-color: #3c4242;*/
+  background: linear-gradient(black, #191919);
+}
+
 
