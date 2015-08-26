@@ -1,11 +1,9 @@
-
-
 <li>
   <%= com.body %> -- <%= com.commenter.name %> (<%= com.created_at %>)
 
   <% if is_admin? || com.commenter == current_user %>
-    <%= link_to "Edit" %> |
-    <%= link_to "Delete" %>
+    <%= link_to "Edit", "/comments/#{com.id}/edit" %> |
+    <%= link_to "Delete", com, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 
 </li>

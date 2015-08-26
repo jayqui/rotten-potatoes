@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :load_commentable, only: [:new, :create]
   before_action :determine_movie, only: [:new, :create]
+  before_action :commentable_of_comment, only: [:update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -17,10 +18,6 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
-
-    p "@commentable.is_a?(Movie)" * 50
-    p @commentable
-    p @commentable.is_a?(Movie)
   end
 
   # GET /comments/1/edit
@@ -50,7 +47,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to determine_movie, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to commentable_of_comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -64,7 +61,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to commentable_of_comment, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -91,5 +88,13 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:body)
+    end
+
+    def commentable_of_comment
+      if @comment.commentable.is_a?(Movie)
+        return @comment.commentable
+      elsif @comment.commentable.is_a?(Review)
+        return @comment.commentable.movie
+      end
     end
 end
