@@ -4,3 +4,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+task :require_faker => :environment do
+	require 'faker'
+	require_relative "db/seeds"
+end
