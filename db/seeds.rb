@@ -18,11 +18,11 @@ end
 
 
 
-  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url:  'http://lorempixel.com/750/450/nightlife/1', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
-  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/2', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
-  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/3', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
-  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/4', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
-  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/5', director: Faker::Name.first_name + Faker::Name.last_name, producer: Faker::Name.first_name + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url:  'http://lorempixel.com/750/450/nightlife/1', director: Faker::Name.first_name + " " + Faker::Name.last_name, producer: Faker::Name.first_name + " " + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/2', director: Faker::Name.first_name + " " + Faker::Name.last_name, producer: Faker::Name.first_name + " " + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/3', director: Faker::Name.first_name + " " + Faker::Name.last_name, producer: Faker::Name.first_name + " " + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/4', director: Faker::Name.first_name + " " + Faker::Name.last_name, producer: Faker::Name.first_name + " " + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
+  Movie.create!(title: Faker::Book.title, admin: matty, tagline: Faker::Hacker.say_something_smart, image_url: 'http://lorempixel.com/750/450/nightlife/5', director: Faker::Name.first_name + " " + Faker::Name.last_name, producer: Faker::Name.first_name + " " + Faker::Name.last_name, description: Faker::Hacker.say_something_smart)
 
 
 Movie.last.update(authorized_reviewer: User.find(2))
