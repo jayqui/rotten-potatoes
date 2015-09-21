@@ -28,6 +28,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bcrypt'
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password
