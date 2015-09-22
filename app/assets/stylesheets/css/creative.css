@@ -172,6 +172,7 @@ aside {
     }
 }
 
+    /*background-image: url(../img/retro1.jpg) ;*/
 header {
     position: relative;
     width: 100%;
@@ -179,7 +180,6 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    /*background-image: url(../img/retro1.jpg) ;*/
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
